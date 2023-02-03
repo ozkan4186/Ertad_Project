@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import pic1 from "../assets/image.png";
 
 const Navbar = () => {
-  const navigate = useNavigate();
   return (
     <nav className="relative w-full flex flex-wrap items-center justify-between py-3 bg-gray-900 text-gray-200 shadow-lg navbar navbar-expand-md navbar-light">
       <div className="container-fluid w-full flex flex-wrap items-center justify-between px-6">
@@ -40,10 +39,10 @@ const Navbar = () => {
             <img src={pic1} alt="" className="rounded-xl w-36" />
           </a>
           {/* Left links */}
-          <ul className="navbar-nav flex flex-col pl-0 list-style-none mr-auto">
+          <ul className="navbar-nav flex flex-col pl-8 list-style-none m-auto">
             <li className="nav-item p-2">
               <Link to={"/"} className="nav-link text-white hover:opacity-80 ">
-                Anasayfa
+                ANASAYFA
               </Link>
             </li>
             <li className="nav-item p-2">
@@ -51,13 +50,13 @@ const Navbar = () => {
                 to={"/comm"}
                 className="nav-link text-white hover:opacity-80 focus:opacity-80 p-0"
               >
-                İletişim
+                İLETİŞİM
               </Link>
               <Link
-                to={"/börek"}
+                to={"/cake"}
                 className="nav-link text-white hover:opacity-80 focus:opacity-80 p-0"
               >
-                Böreklerimiz
+                BÖREKLERİMİZ
               </Link>
             </li>
           </ul>

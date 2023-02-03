@@ -1,6 +1,6 @@
 import React from "react";
 
-const Börekler = () => {
+const Cake = () => {
   return (
     <div className="flex justify-center">
       <div className="rounded-lg shadow-lg bg-white max-w-sm">
@@ -29,4 +29,4 @@ const Börekler = () => {
   );
 };
 
-export default Börekler;
+export default Cake;

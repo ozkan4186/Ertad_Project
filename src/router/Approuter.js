@@ -1,26 +1,32 @@
-import React from 'react'
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
+
+import Comm from "../pages/Comm";
+
+
+
 import Home from "../pages/Home";
 import Login from "../pages/Login";
-import Communication from "../pages/Comm";
-import Register from '../pages/Register';
-import Börekler from '../pages/Börekler';
+import Register from "../pages/Register";
+import Cake from "../pages/Cake";
 
-
-const Approuter = () => {
+const AppRouter = () => {
   return (
-    <BrowserRouter>
-      <Navbar />
+    <>
+      <Navbar/>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/comm" element={<Communication />} />
-        <Route path="/börek" element={<Börekler />} />
+        <Route path="/" element={<Home/>}/>
+        <Route path="/comm" element={<Comm/>}/>
+        <Route path="/cake" element={<Cake/>}/>
+        
+        <Route path="/login" element={<Login/>}/>
+        <Route path="/register" element={<Register/>} />
       </Routes>
-    </BrowserRouter>
+      <Footer />
+    </>
   );
-}
+};
 
-export default Approuter
+export default AppRouter;
