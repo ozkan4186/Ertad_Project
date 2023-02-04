@@ -4,7 +4,7 @@ import pic1 from "../assets/image.png";
 
 const Navbar = () => {
   return (
-    <nav className="relative w-full flex flex-wrap items-center justify-between py-3 bg-gray-900 text-gray-200 shadow-lg navbar navbar-expand-md navbar-light">
+    <nav className="relative w-full flex flex-wrap items-center justify-between py-3 bg-amber-600 text-gray-200 shadow-lg navbar navbar-expand-md navbar-light">
       <div className="container-fluid w-full flex flex-wrap items-center justify-between px-6">
         <button
           className="navbar-toggler text-gray-200 border-0 hover:shadow-none hover:no-underline py-2 px-2.5 bg-transparent focus:outline-none focus:ring-0 focus:shadow-none focus:no-underline"
