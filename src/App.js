@@ -8,53 +8,31 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-
-
-
-
-
-
-
-
-
-
+import Sepetim from "./pages/Sepetim";
 
 function App() {
+  // const [basket, setBasket] = useState(0);
 
-  const [basket, setBasket] = useState(0)
-  const [baskets, setBaskets] = useState(0)
-  const handleSubmit =(e)=>{
-    e.preventDefault()
-    setBasket(basket +1)
-    
-  }
-  const handleSubmits = (e) => {
-    e.preventDefault();
-    setBaskets( baskets - 1);
-  };
+  // const handleSubmit = (e) => {
+  // e.preventDefault();
+  // setBasket(basket +1);
+  //
+  // };
 
   return (
     <>
-      <Navbar basket={basket} baskets={baskets}  />
+      <Navbar  />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/comm" element={<Comm />} />
-        <Route
-          path="/cake"
-          element={
-            <Cake
-              handleSubmit={handleSubmit}
-              handleSubmits={handleSubmits}
-              />
-          }
-        />
-
+        <Route path="/cake" element={<Cake  />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/sepetim" element={<Sepetim />} />
         <Route path="/register" element={<Register />} />
       </Routes>
       <Footer />
     </>
-  ); 
+  );
 }
 
 export default App;

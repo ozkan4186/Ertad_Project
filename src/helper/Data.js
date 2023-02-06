@@ -10,31 +10,37 @@ export const data = [
     id: 1,
     title: "Karişik Tepsi",
     image: pic1,
+    price:350
   },
   {
     id: 2,
     title: "Civil Peynirli Maydanozlu",
-    image: pic2
+    image: pic2,
+    price:300
   },
   {
     id: 3,
     title: "Kiymali Tepsi",
     image: pic3,
+    price:380
   },
   {
     id: 4,
     title: "Kurabiye Çeşitleri",
     image: pic4,
+    price:100
   },
   {
     id: 5,
     title: "Poaçalar",
     image: pic5,
+    price:5
   },
   {
     id: 6,
     title: "Kandil Simidi",
     image: pic6,
+    price:20
   },
 ];
 export default data;
