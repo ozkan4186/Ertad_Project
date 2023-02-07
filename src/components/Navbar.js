@@ -35,14 +35,14 @@ const Navbar = ( ) => {
           </svg>
         </button>
         <div
-          className="collapse navbar-collapse flex-grow items-center"
+          className="collapse navbar-collapse flex-grow items-center "
           id="navbarSupportedContent1"
         >
           <a className="text-xl text-white pr-2 font-semibold" href="#">
             <img src={pic1} alt="" className="rounded-xl w-36" />
           </a>
           {/* Left links */}
-          <ul className="navbar-nav flex flex-col pl-8 list-style-none m-auto font text-2xl ">
+          <ul className="navbar-nav flex flex-col pl-5 list-style-none m-auto font text-3xl  ">
             <li className="nav-item p-2">
               <Link to={"/"} className="nav-link text-white hover:opacity-80 ">
                 ANASAYFA
@@ -57,7 +57,7 @@ const Navbar = ( ) => {
               </Link>
               <Link
                 to={"/cake"}
-                className="nav-link text-white hover:opacity-80 focus:opacity-80 p-0"
+                className="nav-link text-white hover:opacity-80 focus:opacity-80 p-0 "
               >
                 ÜRÜNLERİMİZ
               </Link>

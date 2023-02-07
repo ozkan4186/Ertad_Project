@@ -11,6 +11,7 @@ export const basketSlice = createSlice({
   reducers: {
     ekle: (state, action) => {
       state.urunlar.push(action.payload)
+      console.log(action.payload)
       
     },
   },
