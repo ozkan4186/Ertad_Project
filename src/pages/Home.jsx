@@ -1,94 +1,41 @@
-import React from 'react'
-import image1 from   '../assets/video1.mp4'
-import image2 from   '../assets/video2.mp4'
-import image3 from   '../assets/video3.mp4'
-import image4 from   '../assets/video4.mp4'
-import image5 from   '../assets/video5.mp4'
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import Data from "../helper/Data2";
 
 const Home = () => {
+  const navigate=useNavigate()
   return (
-    <div
-      id="carouselExampleCaptions"
-      className="carousel slide carousel-fade relative"
-      data-bs-ride="carousel"
-    >
-      <div className="carousel-indicators absolute right-0 bottom-0 left-0 flex justify-center p-0 mb-4">
-        <button
-          type="button"
-          data-bs-target="#carouselExampleCaptions"
-          data-bs-slide-to={0}
-          className="active"
-          aria-current="true"
-          aria-label="Slide 1"
-        />
-        <button
-          type="button"
-          data-bs-target="#carouselExampleCaptions"
-          data-bs-slide-to={1}
-          aria-label="Slide 2"
-        />
-        <button
-          type="button"
-          data-bs-target="#carouselExampleCaptions"
-          data-bs-slide-to={2}
-          aria-label="Slide 3"
-        />
+    <>
+      <div className="h-32 text-center   items-center  bg-red-500 text-gray-900 ">
+        <h5 className="h-28 ml-40  text-4xl ">ÜRÜNLERİMİZİN YAPIM AŞAMALARI</h5>
       </div>
-      <div className="carousel-inner relative w-full overflow-hidden">
-        <div className="carousel-item active relative float-left w-full">
-          <video className="w-full" autoPlay loop muted>
-            <source src={image1} type="video/mp4" />
-          </video>
-          <div className="carousel-caption hidden md:block absolute text-center">
-            <h5 className="text-xl">First slide label</h5>
-            <p>Some representative placeholder content for the first slide.</p>
-          </div>
-        </div>
-        <div className="carousel-item relative float-left w-full">
-          <video className="w-full" autoPlay loop muted>
-            <source src={image2} type="video/mp4" />
-          </video>
-          <div className="carousel-caption hidden md:block absolute text-center">
-            <h5 className="text-xl">Second slide label</h5>
-            <p>Some representative placeholder content for the second slide.</p>
-          </div>
-        </div>
-        <div className="carousel-item relative float-left w-full">
-          <video className="w-full" autoPlay loop muted>
-            <source src={image3} type="video/mp4" />
-          </video>
-          <div className="carousel-caption hidden md:block absolute text-center">
-            <h5 className="text-xl">Third slide label</h5>
-            <p>Some representative placeholder content for the third slide.</p>
-          </div>
-        </div>
+      <div className=" mt-5 m-auto w-2/3 justify-center flex flex-wrap gap-6 items-center ">
+        {Data.map((item) => {
+          return (
+            <div className="rounded-lg shadow-lg bg-gray max-w-sm flex-wrap items-center ">
+              <a href="#!" data-mdb-ripple="true" data-mdb-ripple-color="light">
+                <video className="w-full" autoPlay loop muted>
+                  <source src={item.image} type="video/mp4" />
+                </video>
+              </a>
+              <div className="p-6">
+                <button
+                 onClick={()=>navigate("/cake")}
+                  type="button"
+                  className=" inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight 
+                 uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg
+              focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 
+              ease-in-out items-center "
+                >
+                  DETAYI GÖRMEK İÇİN TIKLAYINIZ
+                </button>
+              </div>
+            </div>
+          );
+        })}
       </div>
-      <button
-        className="carousel-control-prev absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline left-0"
-        type="button"
-        data-bs-target="#carouselExampleCaptions"
-        data-bs-slide="prev"
-      >
-        <span
-          className="carousel-control-prev-icon inline-block bg-no-repeat"
-          aria-hidden="true"
-        />
-        <span className="visually-hidden">Previous</span>
-      </button>
-      <button
-        className="carousel-control-next absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline right-0"
-        type="button"
-        data-bs-target="#carouselExampleCaptions"
-        data-bs-slide="next"
-      >
-        <span
-          className="carousel-control-next-icon inline-block bg-no-repeat"
-          aria-hidden="true"
-        />
-        <span className="visually-hidden">Next</span>
-      </button>
-    </div>
+    </>
   );
-}
+};
 
-export default Home
+export default Home;
