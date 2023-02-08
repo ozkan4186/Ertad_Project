@@ -2,13 +2,14 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import pic1 from "../assets/image.png";
+import Sepetim from "../pages/Sepetim";
 
 const Navbar = ( ) => {
   const navigate=useNavigate()
   const {urunlar} = useSelector((state) => state.basket);
   return (
-    <nav className=" relative w-full flex flex-wrap items-center justify-between py-3 bg-amber-600 text-gray-200 shadow-lg navbar navbar-expand-md navbar-light  ">
-      <div className="container-fluid w-full flex flex-wrap items-center justify-between px-6">
+    <nav className=" fixed-top p-6 w-full flex flex-wrap items-center justify-between py-3  bg-amber-600 text-gray-200 shadow-lg navbar navbar-expand-md navbar-light  mb-1 ">
+      <div className="container-fluid w-full flex flex-wrap items-center mb-1  justify-between px-6">
         <button
           className="navbar-toggler text-gray-200 border-0 hover:shadow-none hover:no-underline py-2 px-2.5 bg-transparent focus:outline-none focus:ring-0 focus:shadow-none focus:no-underline"
           type="button"
@@ -42,7 +43,7 @@ const Navbar = ( ) => {
             <img src={pic1} alt="" className="rounded-xl w-36" />
           </a>
           {/* Left links */}
-          <ul className="navbar-nav flex flex-col pl-5 list-style-none m-auto font text-3xl w-96 ">
+          <ul className="navbar-nav flex flex-col pl-5 list-style-none m-auto font text-3xl  font-medium leading-tight  mt-0 mb-2 text-blue-600">
             <li className="nav-item p-2 ">
               <Link to={"/"} className="nav-link text-white hover:opacity-80 ">
                 ANASAYFA
@@ -94,7 +95,7 @@ const Navbar = ( ) => {
               onClick={() => navigate("/sepetim")}
               className="text-white bg-red-700 absolute rounded-full text-xs -mt-2.5 ml-2 py-0 px-1.5"
             >
-              {urunlar.length}
+              {urunlar.length === 0 ? 0 : urunlar.length}
             </span>
           </a>
           <div className="dropdown relative">

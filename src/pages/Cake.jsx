@@ -11,7 +11,9 @@ const Cake = () => {
   return (
     <>
       <div className="h-32 text-center   items-center  bg-red-500 text-gray-900 ">
-        <h5 className="h-28 ml-40  text-4xl ">ÜRÜNLERİMİZ</h5>
+        <h2 className="font-medium leading-tight text-4xl    mt-28  text-blue-600">
+          ÜRÜNLERİMİZ
+        </h2>
       </div>
       <div className=" mt-5 m-auto w-2/3 justify-center flex flex-wrap gap-6 items-center">
         {data.map((item) => {

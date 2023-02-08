@@ -47,25 +47,5 @@ export const data = [
     image: pic6,
     price: 20,
   },
-  {
-    id: 7,
-    images: image1,
-  },
-  {
-    id: 8,
-    images: image2,
-  },
-  {
-    id: 9,
-    images: image3,
-  },
-  {
-    id: 10,
-    images: image4,
-  },
-  {
-    id: 11,
-    images: image5,
-  },
 ];
 export default data;

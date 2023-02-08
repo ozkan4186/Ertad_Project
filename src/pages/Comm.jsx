@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 const Comm = () => {
   const navigate = useNavigate();
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center mt-20 ">
       <div className="rounded-lg shadow-lg bg-white max-w-sm">
         <div className="p-6">
           <div className=" bg-gray-300 h-80 w-100 mb-5">
