@@ -15,7 +15,7 @@ const Cake = () => {
           ÜRÜNLERİMİZ
         </h2>
       </div>
-      <div className=" mt-5 m-auto w-2/3 justify-center flex flex-wrap gap-6 items-center">
+      <div className=" mt-5 m-auto w-2/3 justify-center flex flex-wrap gap-6 items-center mb-4 ">
         {data.map((item) => {
           return (
             <div className="rounded-lg shadow-lg bg-gray max-w-sm flex-wrap items-center ">

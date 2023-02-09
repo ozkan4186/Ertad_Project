@@ -1,12 +1,14 @@
+import { computeHeadingLevel } from "@testing-library/react";
 import React from "react";
 import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import pic1 from "../assets/image.png";
 import Sepetim from "../pages/Sepetim";
 
-const Navbar = ( ) => {
-  const navigate=useNavigate()
-  const {urunlar} = useSelector((state) => state.basket);
+const Navbar = () => {
+  const navigate = useNavigate();
+  const { urunlar } = useSelector((state) => state.basket);
+  console.log(urunlar);
   return (
     <nav className=" fixed-top p-6 w-full flex flex-wrap items-center justify-between py-3  bg-amber-600 text-gray-200 shadow-lg navbar navbar-expand-md navbar-light  mb-1 ">
       <div className="container-fluid w-full flex flex-wrap items-center mb-1  justify-between px-6">
@@ -95,7 +97,8 @@ const Navbar = ( ) => {
               onClick={() => navigate("/sepetim")}
               className="text-white bg-red-700 absolute rounded-full text-xs -mt-2.5 ml-2 py-0 px-1.5"
             >
-              {urunlar.length === 0 ? 0 : urunlar.length}
+              {urunlar?.length > 0 && <div>{urunlar.length}</div>}
+              {urunlar?.length === 0 && <div className="disabled"></div>}
             </span>
           </a>
           <div className="dropdown relative">

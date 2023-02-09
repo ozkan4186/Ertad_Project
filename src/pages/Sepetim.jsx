@@ -1,9 +1,13 @@
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { computeHeadingLevel } from "@testing-library/react";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 const Sepetim = () => {
   const [count, setCount] = useState(1);
   const { urunlar } = useSelector((state) => state.basket);
+  console.log(urunlar);
+
+
   return (
     <div className="mt-28">
       {urunlar.map((item) => {
@@ -35,17 +39,24 @@ const Sepetim = () => {
                           </div>
                         </div>
                         <div className="col-md-6 col-lg-6 col-xl-6">
-                          <div className="flex">
+                          <div className="flex justify-between   ">
                             <h5>Quant trident shirts</h5>
-                            <div className=" ml-12 border p-2 w- text-center justify-between cursor-pointer font-bold ">
-                              <span>-</span>
-                              <span>1</span>
-                              <span onClick={() => setCount(count + 1)}>+</span>
+                            <div className="flex  justify-end  w-52 ">
+                              <div className=" ml-12 border p-2 justify-between align-middle text-xl h-10 w-20 text-center cursor-pointer">
+                                <span className="mr-2">-</span>
+                                <span>1</span>
+                                <span
+                                  className="ml-2"
+                                  onClick={() => setCount(count + 1)}
+                                >
+                                  +
+                                </span>
+                              </div>
+                              <span className="ml-16 mt-1"> {count} </span>
+                              <span className="ml-36   text-3xl  cursor-pointer ">
+                                x
+                              </span>
                             </div>
-                            <span className="ml-16 mt-1"> {count} </span>
-                            <span className="ml-36   text-3xl  cursor-pointer ">
-                              x
-                            </span>
                           </div>
 
                           <div className="d-flex flex-row">
