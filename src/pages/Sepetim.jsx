@@ -1,10 +1,13 @@
 import { computeHeadingLevel } from "@testing-library/react";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import useBasketCalls from "../hooks/useBasketCall";
 
 const Sepetim = () => {
   const [count, setCount] = useState(1);
   const { urunlar } = useSelector((state) => state.basket);
+  const { sepetim } = useBasketCalls();
+
   console.log(urunlar);
 
 

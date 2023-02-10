@@ -145,7 +145,7 @@ const Footer = () => {
           className="text-center p-4"
           style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
         >
-          © 2023 ER-TAD BÖREKÇİLİK:HER HAKKI SAKLIDIR
+          © {new Date().getFullYear()} ER-TAD BÖREKÇİLİK:HER HAKKI SAKLIDIR
         </div>
       </footer>
     </div>
