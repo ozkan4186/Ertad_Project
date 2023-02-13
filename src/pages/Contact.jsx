@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const Comm = () => {
+const Contact = () => {
   const navigate = useNavigate();
   return (
     <div className="flex justify-center mt-20 ">
@@ -38,4 +38,4 @@ const Comm = () => {
   );
 };
 
-export default Comm;
+export default Contact;
