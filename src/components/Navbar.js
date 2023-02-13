@@ -1,24 +1,39 @@
 import * as React from "react";
+import { Link, NavLink } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
-import Avatar from "@mui/material/Avatar";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
-import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
+import image from "../assets/image.png";
 
-const pages = ["Products", "Pricing", "Blog"];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
+import Badge from "@mui/material/Badge";
+import { styled } from "@mui/material/styles";
+import { useContext } from "react";
 
-function ResponsiveAppBar() {
+import { useNavigate } from "react-router-dom";
+
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { AuthContext } from "../context/AuthContext";
+
+const pages = ["Yapim", "contact", "products"];
+const settings = ["Kayit Ol", "Giriş Yap"];
+const settings2 = ["Profile", "Çikiş Yap"];
+
+const Navbar = () => {
+  const { currentUser } = useContext(AuthContext);
+
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+  const navigate = useNavigate();
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -31,31 +46,31 @@ function ResponsiveAppBar() {
     setAnchorElNav(null);
   };
 
-  const handleCloseUserMenu = () => {
+  const handleCloseUserMenu = (e) => {
     setAnchorElUser(null);
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{ backgroundColor: "#222831",position:"fixed",top:"0" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
           <Typography
             variant="h6"
             noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
-            }}
+            component="div"
+            sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
           >
-            LOGO
+            <NavLink   to="/">
+              <Box 
+              component="img"
+              sx={{
+                maxWidth:"200px",
+                borderRadius:"10px",
+                margin:"1rem"
+
+                
+              }} src={image} alt="" />
+            </NavLink>
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -88,47 +103,56 @@ function ResponsiveAppBar() {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
+                <NavLink
+                  to={"/" + page.toLocaleLowerCase()}
+                  key={page}
+                  onClick={handleCloseNavMenu}
+                  sx={{ textDecarotion: "none", color: "white" }}
+                >
+                  <Typography textAlign="center" sx={{ color: "black" }}>
+                    {page}
+                  </Typography>
+                </NavLink>
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href=""
-            sx={{
-              mr: 2,
-              display: { xs: "flex", md: "none" },
-              flexGrow: 1,
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
-            }}
-          >
-            LOGO
-          </Typography>
+
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
+                sx={{ my: 2, color: "black", display: "block" }}
               >
-                {page}
+                <NavLink
+                  to={"/" + page.toLocaleLowerCase()}
+                  sx={{ textDecarotion: "none", color: "Black" }}
+                >
+                  {page}
+                </NavLink>
               </Button>
             ))}
           </Box>
-
+          <IconButton
+            aria-label="cart"
+            sx={{ marginRight: "10px" }}
+            onClick={() => navigate("/basket")}
+          >
+            {/* <StyledBadge badgeContent={count} sx={{ color: "white" }}> */}
+            {/* <ShoppingCartIcon /> */}
+            {/* </StyledBadge> */}
+          </IconButton>
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+              <IconButton
+                onClick={handleOpenUserMenu}
+                sx={{ p: 0, color: "white" }}
+              >
+                {currentUser ? (
+                  currentUser.email[0].toUpperCase()
+                ) : (
+                  <AccountCircleIcon />
+                )}
               </IconButton>
             </Tooltip>
             <Menu
@@ -147,16 +171,48 @@ function ResponsiveAppBar() {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
+              {currentUser
+                ? settings2.map((setting) => (
+                    <MenuItem
+                      key={setting}
+                      onClick={(e) => handleCloseUserMenu(e)}
+                    >
+                      <Typography textAlign="center">{setting}</Typography>
+                    </MenuItem>
+                  ))
+                : settings.map((setting) => (
+                    <MenuItem
+                      key={setting}
+                      onClick={(e) => handleCloseUserMenu(e)}
+                    >
+                      <Typography textAlign="center">{setting}</Typography>
+                    </MenuItem>
+                  ))}
             </Menu>
           </Box>
         </Toolbar>
       </Container>
     </AppBar>
   );
-}
-export default ResponsiveAppBar;
+};
+
+export default Navbar;
+
+// import React from 'react'
+// import { NavLink } from 'react-router-dom'
+
+// const Navbar = () => {
+//   return (
+//     <div>
+//         <NavLink to="/">Fraternity</NavLink>
+//         {/* <NavLink to="/">Home</NavLink> */}
+//         {/* <NavLink to="/register">Register</NavLink> */}
+//         <NavLink to="/login">Login</NavLink>
+//         <NavLink to="/about">About Us</NavLink>
+//         <NavLink to="/contact">Contact</NavLink>
+//         <NavLink to="/product">Products</NavLink>
+//         <NavLink to="/basket">Basket</NavLink>
+//     </div>
+//   )
+// }
+// export default Navbar

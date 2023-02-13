@@ -1,14 +1,12 @@
 import React from "react";
-
-
 import Home from "../pages/Home";
 import Login from "../pages/Login";
-
 import Contact from "../pages/Contact";
 import Basket from "../pages/Basket";
 import Register from "../pages/Register";
 import Details from "../pages/Details";
-
+import Yapim from "../pages/Yapim";
+import Products from "../pages/Products";
 import Checkout from "../pages/Checkout";
 import PrivateRouter from "./PrivateRouter";
 import Profile from "../pages/Profile";
@@ -20,27 +18,27 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 const AppRouter = () => {
   return (
     <BrowserRouter>
-
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/basket" element={<PrivateRouter />}>
-            <Route path="" element={<Basket />} />
-          </Route>
-          <Route path="/profile" element={<PrivateRouter />}>
-            <Route path="" element={<Profile />} />
-          </Route>
-          <Route path="/details/:id" element={<Details />} />
-          <Route path="/checkout" element={<PrivateRouter />}>
-            <Route path="" element={<Checkout />} />
-          </Route>
-        </Routes>
-        <Footer />
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/yapim" element={<Yapim />} />
+        <Route path="/products" element={<Products/>} />
     
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/basket" element={<PrivateRouter />}>
+          <Route path="" element={<Basket />} />
+        </Route>
+        <Route path="/profile" element={<PrivateRouter />}>
+          <Route path="" element={<Profile />} />
+        </Route>
+        <Route path="/details/:id" element={<Details />} />
+        <Route path="/checkout" element={<PrivateRouter />}>
+          <Route path="" element={<Checkout />} />
+        </Route>
+      </Routes>
+      <Footer />
     </BrowserRouter>
   );
 };

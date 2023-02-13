@@ -5,13 +5,16 @@ import React from "react";
   
 
 import AppRouter from "./router/Approuter";
+import AuthcontextProvider, { AuthContext } from "./context/AuthContext";
 
 function App() {
   return (
-    <>
-      <AppRouter />
-      <ToastContainer />
-    </>
+    <div>
+      <AuthcontextProvider>
+        <AppRouter />
+        <ToastContainer />
+      </AuthcontextProvider>
+    </div>
   );
 }
 

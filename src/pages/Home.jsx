@@ -3,10 +3,10 @@ import { useNavigate } from "react-router-dom";
 import Data from "../helper/Data2";
 
 const Home = () => {
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   return (
     <>
-      <div className="h-32 text-center  items-center  bg-red-500 text-gray-900 ">
+      <div className="text-center  items-center  bg-red-500 text-gray-900 ">
         <h2 className="font-medium leading-tight text-4xl mt-28   mb-2 text-blue-600">
           YAPIM AŞAMALARI
         </h2>
