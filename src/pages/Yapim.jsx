@@ -7,47 +7,50 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { useNavigate } from "react-router-dom";
 import Data from "../helper/Data2";
+import { Box } from "@mui/system";
 
 export default function MediaCard() {
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   return (
-    <Card sx={{
-     display:"flex",flexWrap:"wrap",gap:5,justifyContent:"space-evenly" }}>
-  
+    <Box>
+      <Box component="h1" sx={{
+        marginTop:{
+          xs:"4rem",
+          md:"8rem"
+        },
+        textAlign:"center",
+        backgroundColor:"gray",
+        padding:"2rem"
 
-       
+      }}  >
+        YAPIM AŞAMALARI
+
+      </Box>
+      <Card
+        sx={{
+          display: "flex",
+          flexWrap: "wrap",
+          gap: 5,
+          justifyContent: "space-evenly",
+          width: "70%",
+          margin: "2rem auto ",
+        }}
+      >
         {Data.map((item) => {
           return (
             <div className="rounded-lg shadow-lg bg-gray max-w-sm flex-wrap items-center ">
               <a href="#!" data-mdb-ripple="true" data-mdb-ripple-color="light">
-                <video className="w-full" autoPlay loop muted>
+                <video className="w-full p-3" autoPlay loop muted>
                   <source src={item.image} type="video/mp4" />
                 </video>
               </a>
-              <div className="p-2">
-                <button
-                  onClick={() => navigate("/cake")}
-                  type="button"
-                  className=" inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight 
-                uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg
-             focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 
-             ease-in-out items-center "
-                >
-                  DETAYI GÖRMEK İÇİN TIKLAYINIZ
-                </button>
+              <div className="text-center p-3 ">
+                <Button variant="contained">Contained</Button>
               </div>
             </div>
           );
         })}
-        <Typography variant="body2" color="text.secondary">
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
-        </Typography>
-  
-      <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
-      </CardActions>
-    </Card>
+      </Card>
+    </Box>
   );
 }

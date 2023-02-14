@@ -51,7 +51,11 @@ const Navbar = () => {
   };
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: "#222831",position:"fixed",top:"0" }}>
+    <AppBar position="static" sx={{ backgroundColor: "#222831",position:"fixed",top:"0",zIndex:10,
+    height:{
+      xs:"4rem",
+      md:"8rem",
+    } }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -73,8 +77,11 @@ const Navbar = () => {
             </NavLink>
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" }  }}>
             <IconButton
+              sx={{
+                width:"5rem",
+              }}
               size="large"
               aria-label="account of current user"
               aria-controls="menu-appbar"
