@@ -1,43 +1,48 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import Data from "../helper/Data2";
+import React from 'react'
+
 
 const Home = () => {
-  const navigate = useNavigate();
-  return (
-    <>
-      <div className="text-center  items-center  bg-red-500 text-gray-900 ">
-        <h2 className="font-medium leading-tight text-4xl mt-28   mb-2 text-blue-600">
-          YAPIM AŞAMALARI
-        </h2>
-      </div>
-      <div className=" mt-5 m-auto w-2/3 justify-center flex flex-wrap gap-6 items-center ">
-        {Data.map((item) => {
-          return (
-            <div className="rounded-lg shadow-lg bg-gray max-w-sm flex-wrap items-center ">
-              <a href="#!" data-mdb-ripple="true" data-mdb-ripple-color="light">
-                <video className="w-full" autoPlay loop muted>
-                  <source src={item.image} type="video/mp4" />
-                </video>
-              </a>
-              <div className="p-6">
-                <button
-                  onClick={() => navigate("/cake")}
-                  type="button"
-                  className=" inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight 
-                 uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg
-              focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 
-              ease-in-out items-center "
-                >
-                  DETAYI GÖRMEK İÇİN TIKLAYINIZ
-                </button>
-              </div>
-            </div>
-          );
-        })}
-      </div>
-    </>
-  );
-};
 
-export default Home;
+  
+  return (
+    
+    <div style={{
+      backgroundImage: 'url(https://source.unsplash.com/random)',
+      backgroundRepeat: 'no-repeat',
+      backgroundColor: (t) =>
+        t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
+      backgroundSize: 'cover',
+      backgroundPosition: "center",
+      // backgroundAttachment: "fixed",
+      height: "100vh",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+    }}>
+          <h1 
+//             style={{
+//             fontFamily: "fantasy",
+//             fontSize: "5rem",
+//             color: "white",
+//             textAlign: "center",
+//             display: "flex",
+//             alignItems: "center",
+//             justifyContent: "center",
+//             marginTop: "50px",
+//             marginBottom: "50px",
+//             marginLeft: "50px",
+//             marginRight: "50px",
+//             backgroundColor: "rgba(0,0,0,0.5)",
+//             borderRadius: "50px",
+//             padding: "10px",
+//             border: "1px solid white",
+//             boxShadow: "0px 0px 10px black",
+//             letterSpacing: "5px"
+//           }}
+          >ER-TAD BÖREKÇİLİK</h1>
+      </div>
+  )
+}
+
+export default Home
+

@@ -73,7 +73,8 @@ const Navbar = () => {
                 margin:"1rem"
 
                 
-              }} src={image} alt="" />
+              }} 
+               src={image} alt="" />
             </NavLink>
           </Typography>
 
